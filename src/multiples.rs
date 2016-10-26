@@ -2,18 +2,18 @@
 #[allow(dead_code)]
 pub fn multiples(upper_bound: i64) -> i64 {
     let range = 0..upper_bound;
-    let divisible = range.filter(|x| x % 3 == 0 || x % 5 == 0);
+    let divisible = range.filter(|n| n % 3 == 0 || n % 5 == 0);
     let mut sum = 0;
-    for x in divisible {
-        sum = sum + x;
+    for n in divisible {
+        sum = sum + n;
     }
     sum
 }
 
 #[allow(dead_code)]
 pub fn multiples_fun(upper_bound: i64) -> i64 {
-    let divisible = (0..upper_bound).filter(|x| x % 3 == 0 || x % 5 == 0);
-    divisible.fold(0, |sum, x| sum + x)
+    let divisible = (0..upper_bound).filter(|n| n % 3 == 0 || n % 5 == 0);
+    divisible.fold(0, |sum, n| sum + n)
 }
 
 #[cfg(test)]
