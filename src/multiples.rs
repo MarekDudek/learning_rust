@@ -14,10 +14,15 @@ pub fn multiples(upper_bound: i64) -> i64 {
 #[cfg(test)]
 mod tests {
     
-    use super::*;
+        use super::*;
 
     #[test]
-    fn example_data() {
+    fn example() {
         assert_eq!(multiples(10), 23);
+    }
+
+    #[test]
+    fn solution() {
+        assert_eq!(multiples(1000), 233168);
     }
 }
