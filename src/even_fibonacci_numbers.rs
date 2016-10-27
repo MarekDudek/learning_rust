@@ -1,4 +1,4 @@
-
+use common::even;
 
 #[allow(dead_code)]
 pub fn fibonacci(i: u64) -> u64 {
@@ -28,7 +28,7 @@ pub fn sum_of_even_fibonacci_up_to(n: u64) -> u64 {
 pub fn sum_of_even_fibonacci_up_to_fun(threshold: u64) -> u64 {
     let integrals = 0..;
     let fibonacci = integrals.map(|i| fibonacci(i));
-    let even = fibonacci.filter(|f| f % 2 == 0);
+    let even = fibonacci.filter(|f| even(*f));
     let up_to = even.take_while(|f| f <= &threshold);
     up_to.fold(0, |sum, n| sum + n)
 }

@@ -1,8 +1,9 @@
+use common::divisible;
 
 #[allow(dead_code)]
-pub fn multiples(upper_bound: i64) -> i64 {
+pub fn multiples(upper_bound: u64) -> u64 {
     let range = 0..upper_bound;
-    let divisible = range.filter(|n| n % 3 == 0 || n % 5 == 0);
+    let divisible = range.filter(|n| divisible(*n, 3) || divisible(*n, 5));
     let mut sum = 0;
     for n in divisible {
         sum = sum + n;
@@ -11,8 +12,8 @@ pub fn multiples(upper_bound: i64) -> i64 {
 }
 
 #[allow(dead_code)]
-pub fn multiples_fun(upper_bound: i64) -> i64 {
-    let divisible = (0..upper_bound).filter(|n| n % 3 == 0 || n % 5 == 0);
+pub fn multiples_fun(upper_bound: u64) -> u64 {
+    let divisible = (0..upper_bound).filter(|n| divisible(*n, 3) || divisible(*n, 5));
     divisible.fold(0, |sum, n| sum + n)
 }
 
