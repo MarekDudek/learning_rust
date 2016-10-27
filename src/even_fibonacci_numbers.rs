@@ -24,6 +24,12 @@ pub fn sum_of_even_fibonacci_up_to(n: u64) -> u64 {
     sum
 }
 
+#[allow(dead_code)]
+pub fn sum_of_even_fibonacci_up_to_fun(n: u64) -> u64 {
+    let series = (0..).map(|i| fibonacci(i)).filter(|f| f % 2 == 0).take_while(|f| f <= &n);
+    series.fold(0, |sum, n| sum + n)
+}
+
 
 #[cfg(test)]
 mod tests {
@@ -53,6 +59,11 @@ mod tests {
     #[test]
     fn sum_up_to_four_million() {
         assert_eq!(sum_of_even_fibonacci_up_to(4000000),4613732 );
+    }
+
+    #[test]
+    fn sum_up_to_four_million_fun() {
+        assert_eq!(sum_of_even_fibonacci_up_to_fun(4000000),4613732 );
     }
 }
 
