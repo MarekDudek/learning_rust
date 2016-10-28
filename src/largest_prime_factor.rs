@@ -9,22 +9,28 @@ pub fn is_prime(n: u64) -> bool {
 
 #[allow(dead_code)]
 pub fn factorize(n: u64) -> Vec<u64> {
-    if n == 1 {
-        vec![]
-    } else {
-        let mut factors: Vec<u64> = vec![];
-        let mut current = n;
-        let mut i = 2;
-        loop {
+    let mut factors: Vec<u64> = vec![];
+    let mut current = n;
+    let mut i = 2;
+    loop {
+        if divisible(current, i) {
+            factors.push(i);
+            current = current / i;
             if current == 1 {
                 return factors;
-            } else if divisible(current, i) {
-                current = current / i;
-                factors.push(i);
-            } else { 
-                i = i + 1;
             }
+        } else {
+            i = i + 1;
         }
+    }
+}
+
+#[allow(dead_code)]
+pub fn largest_prime_factor(n: u64) -> u64 {
+    let factors = factorize(n);
+    match factors.last() {
+        Some(&f) => f,
+        _ => 0
     }
 }
 
@@ -46,7 +52,17 @@ mod tests {
     }
 
     #[test]
-    fn example() {
+    fn example_factors() {
         assert_eq!(factorize(13195), vec![5, 7, 13, 29]);
+    }
+
+    #[test]
+    fn example() {
+        assert_eq!(largest_prime_factor(13195), 29);
+    }
+
+    #[test]
+    fn solution() {
+        assert_eq!(largest_prime_factor(600851475143), 6857);
     }
 }
