@@ -30,6 +30,17 @@ pub fn factorize(n: u64) -> Vec<u64> {
 }
 
 #[allow(dead_code)]
+pub fn largest_prime_factor(n: u64) -> u64 {
+    let factors = factorize(n);
+    match factors.last() {
+        Some(&f) => f,
+        _ => 1
+    }
+}
+
+// TODO: finish functional way
+
+#[allow(dead_code)]
 #[allow(unused_variables)]
 pub fn factorize_fun(n: u64) -> Vec<u64> {
     let primes = (1..).filter(|&n| is_prime(n));
@@ -51,14 +62,7 @@ fn prime_factors(n: u64, series: Filter<RangeFrom<u64>, u64>) -> Vec<u64> {
     }
 }
 
-#[allow(dead_code)]
-pub fn largest_prime_factor(n: u64) -> u64 {
-    let factors = factorize(n);
-    match factors.last() {
-        Some(&f) => f,
-        _ => 0
-    }
-}
+// \TODO
 
 #[cfg(test)]
 mod tests {
