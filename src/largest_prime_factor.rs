@@ -1,3 +1,7 @@
+
+use std::iter::Filter;
+use std::ops::RangeFrom;
+
 use common::divisible;
 
 #[allow(dead_code)]
@@ -26,6 +30,28 @@ pub fn factorize(n: u64) -> Vec<u64> {
 }
 
 #[allow(dead_code)]
+#[allow(unused_variables)]
+pub fn factorize_fun(n: u64) -> Vec<u64> {
+    let primes = (1..).filter(|&n| is_prime(n));
+    let five = primes.take(5).collect::<Vec<u64>>();
+    //print!("!!!!!!!! primes: {:?}", five); 
+    //let a = prime_factors(n, primes);
+    vec![]
+}
+
+#[allow(dead_code)]
+#[allow(unused_variables)]
+fn prime_factors(n: u64, series: Filter<RangeFrom<u64>, u64>) -> Vec<u64> {
+    match (n, series) {
+        (1, _)  => vec![],
+        (m, ps) => {
+            let (q, r) = (m/2, m/2);
+            vec![]
+        }
+    }
+}
+
+#[allow(dead_code)]
 pub fn largest_prime_factor(n: u64) -> u64 {
     let factors = factorize(n);
     match factors.last() {
@@ -40,9 +66,9 @@ mod tests {
     use super::*;
 
     #[test]
-    #[should_panic(expected="assertion failed")]
+    //#[should_panic(expected="assertion failed")]
     fn one_is_not_prime() {
-        assert!(is_prime(1));
+        assert!(!is_prime(1));
     }
 
     #[test]
@@ -54,6 +80,12 @@ mod tests {
     #[test]
     fn example_factors() {
         assert_eq!(factorize(13195), vec![5, 7, 13, 29]);
+    }
+
+    #[test]
+    fn factors_repeating() { // TODO: this is not what I wanted
+        factorize_fun(12);
+        assert_eq!(factorize(12), vec![2, 2, 3]);
     }
 
     #[test]
