@@ -1,8 +1,6 @@
 
-use std::iter::Filter;
-use std::ops::RangeFrom;
-
 use common::divisible;
+use common::quot_rem;
 
 #[allow(dead_code)]
 pub fn is_prime(n: u64) -> bool {
@@ -34,7 +32,7 @@ pub fn largest_prime_factor(n: u64) -> u64 {
     let factors = factorize(n);
     match factors.last() {
         Some(&f) => f,
-        _ => 1
+        _ => 1,
     }
 }
 
@@ -45,18 +43,32 @@ pub fn largest_prime_factor(n: u64) -> u64 {
 pub fn factorize_fun(n: u64) -> Vec<u64> {
     let primes = (1..).filter(|&n| is_prime(n));
     let five = primes.take(5).collect::<Vec<u64>>();
-    //print!("!!!!!!!! primes: {:?}", five); 
-    //let a = prime_factors(n, primes);
+    // print!("!!!!!!!! primes: {:?}", five);
+    // let a = prime_factors(n, primes);
     vec![]
 }
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
-fn prime_factors(n: u64, series: Filter<RangeFrom<u64>, u64>) -> Vec<u64> {
-    match (n, series) {
-        (1, _)  => vec![],
-        (m, ps) => {
-            let (q, r) = (m/2, m/2);
+#[allow(unused_mut)]
+fn prime_factors(n: u64, factors: Vec<u64>) -> Vec<u64> {
+    match (n, factors) {
+        (1, _) => vec![],
+        (m, fs) => {
+            let mut f = fs[0];
+            let (q, r) = quot_rem(m, f);
+            if m < f * f {
+                return vec![m];
+            } else if r == 0 {
+                let mut f_vec = vec![f];
+                let mut rest = prime_factors(q, fs);
+                //let f_vec: Vec<u64> = f_vec.append(&mut rest);
+                //return f_vec;
+                    
+            } else {
+                let f2: Vec<u64> = prime_factors(m, fs);
+                return f2;
+            }
             vec![]
         }
     }
@@ -64,13 +76,41 @@ fn prime_factors(n: u64, series: Filter<RangeFrom<u64>, u64>) -> Vec<u64> {
 
 // \TODO
 
+#[allow(dead_code)]
+pub struct Primes {
+    primes: Vec<u64>,
+    current: u64,
+}
+
+#[allow(dead_code)]
+pub fn primes() -> Primes {
+    Primes {
+        primes: vec![],
+        current: 2,
+    }
+}
+
+impl Iterator for Primes {
+    type Item = u64;
+    fn next(&mut self) -> Option<u64> {
+        for i in self.current..u64::max_value() {
+            if self.primes.iter().all(|x| i % x != 0) {
+                self.primes.push(i);
+                self.current = i + 1;
+                return Some(i);
+            }
+        }
+        panic!("Integer overflow");
+    }
+}
+
 #[cfg(test)]
 mod tests {
 
     use super::*;
 
     #[test]
-    //#[should_panic(expected="assertion failed")]
+    // #[should_panic(expected="assertion failed")]
     fn one_is_not_prime() {
         assert!(!is_prime(1));
     }
@@ -87,8 +127,8 @@ mod tests {
     }
 
     #[test]
-    fn factors_repeating() { // TODO: this is not what I wanted
-        factorize_fun(12);
+    fn factors_repeating() {
+        // TODO: this is not what I wanted
         assert_eq!(factorize(12), vec![2, 2, 3]);
     }
 
