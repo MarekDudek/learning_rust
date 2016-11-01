@@ -1,7 +1,7 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1477853622963" ID="ID_519155126" MODIFIED="1477862201446" TEXT="Rust">
-<node CREATED="1477853680786" ID="ID_750260429" MODIFIED="1477854420774" POSITION="right" TEXT="Variable Bindings">
+<node CREATED="1477853622963" ID="ID_519155126" MODIFIED="1477864883069" TEXT="Rust">
+<node CREATED="1477853680786" ID="ID_750260429" MODIFIED="1477863533953" POSITION="right" TEXT="Variable Bindings">
 <node CREATED="1477853691139" ID="ID_908846492" MODIFIED="1477853699142" TEXT="binds value to a name">
 <node CREATED="1477853700628" ID="ID_1049832575" MODIFIED="1477853737432" TEXT="to be used later"/>
 </node>
@@ -11,14 +11,14 @@
 <node CREATED="1477854202171" ID="ID_22603149" MODIFIED="1477854202906" TEXT="can be shadowed "/>
 </node>
 <node CREATED="1477853880777" ID="ID_1089968336" MODIFIED="1477853885844" TEXT="immutable by default">
-<node CREATED="1477853962932" ID="ID_639036075" MODIFIED="1477855675503">
+<node CREATED="1477853962932" ID="ID_639036075" MODIFIED="1477863328021">
 <richcontent TYPE="NODE"><html>
   <head>
     
   </head>
   <body>
     <p>
-      <font face="Monospaced"><b>mut</b></font>&#160;keyword
+      <font face="Monospaced">mut</font>&#160;keyword
     </p>
   </body>
 </html>
@@ -31,89 +31,6 @@
 <node CREATED="1477854336080" ID="ID_1612951198" MODIFIED="1477854348722" TEXT="value will continue to exist until it goes out of scope"/>
 <node CREATED="1477854384797" ID="ID_1467461211" MODIFIED="1477854401086" TEXT="possibly no longer accessible"/>
 </node>
-</node>
-<node CREATED="1477854423453" ID="ID_1273206605" MODIFIED="1477854425382" POSITION="left" TEXT="Functions">
-<node CREATED="1477855594137" ID="ID_1394906204" MODIFIED="1477855599548" TEXT="diverging functions">
-<node CREATED="1477855601681" ID="ID_115770559" MODIFIED="1477855627032">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font face="Monospaced">-&gt; !</font>
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node CREATED="1477855642875" ID="ID_14119047" MODIFIED="1477855660629">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font face="Monospaced">panic!</font>&#160;macro
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-</node>
-<node CREATED="1477855733942" ID="ID_1961688351" MODIFIED="1477855739875" TEXT="function pointers">
-<node CREATED="1477855742270" ID="ID_407507645" MODIFIED="1477855789048">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font face="Monospaced">let f: fn(i32) -&gt; i32 = plus_one;</font>
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-</node>
-</node>
-<node CREATED="1477855046115" ID="ID_939706472" MODIFIED="1477855055424" POSITION="right" TEXT="Expressions vs Statements">
-<node CREATED="1477855057851" ID="ID_261625810" MODIFIED="1477855351464" TEXT="statements">
-<node CREATED="1477855164730" ID="ID_1794600343" MODIFIED="1477855326838" TEXT="declaration statements">
-<node CREATED="1477855390310" ID="ID_631590307" MODIFIED="1477855689998">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font face="Monospaced"><b>let</b></font>&#160;expression
-    </p>
-  </body>
-</html>
-</richcontent>
-<node CREATED="1477853758276" ID="ID_790011824" MODIFIED="1477855418585">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      left-hand side is a <i>pattern</i>
-    </p>
-  </body>
-</html>
-</richcontent>
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node CREATED="1477855432560" ID="ID_228690685" MODIFIED="1477855437299" TEXT="not a variable name"/>
-</node>
-</node>
-<node CREATED="1477855174968" ID="ID_140642012" MODIFIED="1477855328648" TEXT="expression statements">
-<node CREATED="1477855514162" ID="ID_750559579" MODIFIED="1477855523296" TEXT="turns any expression into a statement"/>
-</node>
-</node>
-<node CREATED="1477855299125" ID="ID_1574794152" MODIFIED="1477855358667" TEXT="expressions"/>
 </node>
 <node CREATED="1477861486219" ID="ID_85270224" MODIFIED="1477861926203" POSITION="left" TEXT="Primitive types">
 <node CREATED="1477861508373" ID="ID_1915398358" MODIFIED="1477861509834" TEXT="bool"/>
@@ -146,7 +63,18 @@
 </node>
 <node CREATED="1477861802741" ID="ID_1453036043" MODIFIED="1477861805624" TEXT="arrays">
 <node CREATED="1477861822121" ID="ID_1918961347" MODIFIED="1477861828782" TEXT="fixed-size"/>
-<node CREATED="1477861834191" ID="ID_1065259652" MODIFIED="1477861843950" TEXT="type of [T; N]">
+<node CREATED="1477861834191" ID="ID_1065259652" MODIFIED="1477863005726">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      type of <font face="Monospaced">[T; N]</font>
+    </p>
+  </body>
+</html>
+</richcontent>
 <node CREATED="1477861844398" ID="ID_1325845290" MODIFIED="1477861847302" TEXT="T - generic"/>
 <node CREATED="1477861848615" ID="ID_1359580302" MODIFIED="1477861854452" TEXT="N - compile-time constant"/>
 </node>
@@ -186,6 +114,219 @@
 </node>
 </node>
 <node CREATED="1477862023898" ID="ID_1753967597" MODIFIED="1477862029683" TEXT="similar to references"/>
+<node CREATED="1477863966240" ID="ID_740733211" MODIFIED="1477863979969" TEXT="represented  as">
+<node CREATED="1477863988070" ID="ID_39062357" MODIFIED="1477863996081" TEXT="pointer to beginning of data"/>
+<node CREATED="1477863996852" ID="ID_1272655507" MODIFIED="1477864001017" TEXT="length"/>
+</node>
+</node>
+<node CREATED="1477863171317" ID="ID_936245814" MODIFIED="1477863173035" TEXT="str">
+<node CREATED="1477863174157" ID="ID_151945078" MODIFIED="1477863179305" TEXT="most primitive string type"/>
+<node CREATED="1477863179911" ID="ID_1059218859" MODIFIED="1477863182108" TEXT="unsized"/>
+<node CREATED="1477863185031" ID="ID_1820954327" MODIFIED="1477863209878">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      usefull behind reference - <font face="Monospaced">&amp;str</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1477863267063" ID="ID_989245309" MODIFIED="1477863269980" TEXT="string slice"/>
+</node>
+</node>
+<node CREATED="1477863245791" ID="ID_962098945" MODIFIED="1477863247786" TEXT="tuples">
+<node CREATED="1477863293377" ID="ID_1021033089" MODIFIED="1477863298648" TEXT="types and arity"/>
+<node CREATED="1477863304174" ID="ID_1434962922" MODIFIED="1477863317382">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      destructuring <font face="Monospaced">let</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1477863369176" ID="ID_1062692056" MODIFIED="1477863382603" TEXT="single-element tuple with comma"/>
+</node>
+</node>
+<node CREATED="1477854423453" ID="ID_1273206605" MODIFIED="1477864380095" POSITION="right" TEXT="Functions">
+<node CREATED="1477855046115" ID="ID_939706472" MODIFIED="1477864400236" TEXT="Expressions vs Statements">
+<node CREATED="1477855057851" ID="ID_261625810" MODIFIED="1477855351464" TEXT="statements">
+<node CREATED="1477855164730" ID="ID_1794600343" MODIFIED="1477855326838" TEXT="declaration statements">
+<node CREATED="1477855390310" ID="ID_631590307" MODIFIED="1477863337444">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">let</font>&#160;expression
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1477853758276" ID="ID_790011824" MODIFIED="1477855418585">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      left-hand side is a <i>pattern</i>
+    </p>
+  </body>
+</html></richcontent>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node CREATED="1477855432560" ID="ID_228690685" MODIFIED="1477855437299" TEXT="not a variable name"/>
+</node>
+</node>
+<node CREATED="1477855174968" ID="ID_140642012" MODIFIED="1477855328648" TEXT="expression statements">
+<node CREATED="1477855514162" ID="ID_750559579" MODIFIED="1477855523296" TEXT="turns any expression into a statement"/>
+</node>
+</node>
+<node CREATED="1477855299125" ID="ID_1574794152" MODIFIED="1477855358667" TEXT="expressions"/>
+</node>
+<node CREATED="1477855594137" ID="ID_1394906204" MODIFIED="1477855599548" TEXT="diverging functions">
+<node CREATED="1477855601681" ID="ID_115770559" MODIFIED="1477855627032">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">-&gt; !</font>
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1477855642875" ID="ID_14119047" MODIFIED="1477855660629">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">panic!</font>&#160;macro
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1477855733942" ID="ID_1961688351" MODIFIED="1477855739875" TEXT="function pointers">
+<node CREATED="1477855742270" ID="ID_407507645" MODIFIED="1477855789048">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">let f: fn(i32) -&gt; i32 = plus_one;</font>
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1477864368483" ID="ID_708229351" MODIFIED="1477864373169" POSITION="left" TEXT="Vectors">
+<node CREATED="1477864456193" ID="ID_1359669732" MODIFIED="1477864464082" TEXT="dynamic growable array"/>
+<node CREATED="1477864465407" ID="ID_1841494531" MODIFIED="1477864478018">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">Vec&lt;T&gt;</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1477864508524" ID="ID_1640615049" MODIFIED="1477864512758" TEXT="always on the heap">
+<node CREATED="1477864532072" ID="ID_1622552094" MODIFIED="1477864542406" TEXT="contiguous array"/>
+<node CREATED="1477864547856" ID="ID_1267304639" MODIFIED="1477864559067" TEXT="must know the size o T at compile time">
+<node CREATED="1477864573340" ID="ID_1283152907" MODIFIED="1477864585417" TEXT="otherwise Box type"/>
+</node>
+</node>
+<node CREATED="1477864601074" ID="ID_378275391" MODIFIED="1477864615789">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      index must be <font face="Monospaced">usize</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1477864680371" ID="ID_1475598048" MODIFIED="1477864703063" TEXT="bounds-checking at run-time">
+<node CREATED="1477864703845" ID="ID_1944099922" MODIFIED="1477864719875" TEXT="via brackets - will panic"/>
+<node CREATED="1477864727151" ID="ID_37571667" MODIFIED="1477864749179">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">get</font>&#160;or <font face="Monospaced">get_mut</font>&#160;for <font face="Monospaced">Option</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1477864805081" ID="ID_1174912054" MODIFIED="1477864807605" TEXT="iterating">
+<node CREATED="1477864808266" ID="ID_6602988" MODIFIED="1477864880511">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">for i in &amp;v</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1477864820198" ID="ID_1557876354" MODIFIED="1477864821810" TEXT="reference"/>
+</node>
+<node CREATED="1477864822866" ID="ID_1853961045" MODIFIED="1477864870963">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">for i in &amp;mut v</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1477864831138" ID="ID_775115409" MODIFIED="1477864834648" TEXT="mutable reference"/>
+</node>
+<node CREATED="1477864835484" ID="ID_1248229605" MODIFIED="1477864863612">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font face="Monospaced">for i in v</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1477864841192" ID="ID_222375996" MODIFIED="1477864846538" TEXT="taking ownership"/>
+<node CREATED="1477864849186" ID="ID_1841020984" MODIFIED="1477864853574" TEXT="vector cannot be used again"/>
+</node>
 </node>
 </node>
 </node>

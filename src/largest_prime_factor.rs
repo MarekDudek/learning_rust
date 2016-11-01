@@ -15,7 +15,9 @@ pub fn factorize(n: u64) -> Vec<u64> {
     let mut i = 2;
     loop {
         if divisible(current, i) {
-            factors.push(i);
+            if !factors.contains(&i) {
+                factors.push(i);
+            }
             current = current / i;
             if current == 1 {
                 return factors;
@@ -69,7 +71,6 @@ mod tests {
     use super::*;
 
     #[test]
-    // #[should_panic(expected="assertion failed")]
     fn one_is_not_prime() {
         assert!(!is_prime(1));
     }
@@ -87,8 +88,7 @@ mod tests {
 
     #[test]
     fn factors_repeating() {
-        // TODO: this is not what I wanted
-        assert_eq!(factorize(12), vec![2, 2, 3]);
+        assert_eq!(factorize(12), vec![2, 3]);
     }
 
     #[test]
