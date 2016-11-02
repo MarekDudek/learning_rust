@@ -328,6 +328,57 @@
 <node CREATED="1477864849186" ID="ID_1841020984" MODIFIED="1477864853574" TEXT="vector cannot be used again"/>
 </node>
 </node>
+<node CREATED="1478032584729" ID="ID_841029581" MODIFIED="1478032600751" TEXT="vector is created on the stack and allocates space on the heap"/>
+</node>
+<node CREATED="1478032475529" ID="ID_1197077505" MODIFIED="1478032479802" POSITION="right" TEXT="Ownership system">
+<node CREATED="1478032483149" ID="ID_1753796664" MODIFIED="1478032487190" TEXT="at compile time"/>
+<node CREATED="1478032516678" ID="ID_71015556" MODIFIED="1478032519442" TEXT="Ownership">
+<node CREATED="1478032527046" ID="ID_1293711426" MODIFIED="1478032549300" TEXT="variable bindings have ownership of what they are bound to"/>
+</node>
+<node CREATED="1478032685625" ID="ID_174805675" MODIFIED="1478032738970" TEXT="Move semantics">
+<node CREATED="1478032643593" ID="ID_182594014" MODIFIED="1478032671313" TEXT="Rust ensures exactly one binding to any given resource"/>
+<node CREATED="1478032739620" ID="ID_526119571" MODIFIED="1478032788957">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      when we transfer ownership to something else we say that we <i>moved</i>&#160; the thing we refere to
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1478032898285" ID="ID_1341148703" MODIFIED="1478032900777" TEXT="Details">
+<node CREATED="1478032901503" ID="ID_1614616831" MODIFIED="1478032996359" TEXT="Rust allocates memory for integer on stack and copies bit pattern to the allocated memory and It binds variable name to this memory for future reference"/>
+<node CREATED="1478032959853" ID="ID_1282174206" MODIFIED="1478033503030" TEXT="For vectors Rust allocates object on the stack and some memory on the heap for actual data. These two parts must agree with each other at all times with regards to things like length, capacity, etc. When we move v to v2 Rust does bitwise copy of the vector object into stack allocation without copying heap allocatinon - shallow copy. There would be two pointers to the contents of vector - data race."/>
+</node>
+<node CREATED="1478033511619" ID="ID_923499941" MODIFIED="1478033515769" TEXT="Copy types">
+<node CREATED="1478033634443" ID="ID_90512018" MODIFIED="1478033656494" TEXT="when ownership is transferred to another binding you cannot use the original binding"/>
+<node CREATED="1478033658970" ID="ID_381484240" MODIFIED="1478033677650" TEXT="except when object implements Copy trait"/>
+<node CREATED="1478033808381" ID="ID_1040503174" MODIFIED="1478034104776" TEXT="copy of the data is made with move - all data on stack because there is no data on heap"/>
+</node>
+<node CREATED="1478036860455" ID="ID_1618574382" MODIFIED="1478036863030" TEXT="Borrowing">
+<node CREATED="1478036902634" ID="ID_1712999986" MODIFIED="1478037120545" TEXT="with references &amp;T">
+<node CREATED="1478036912472" ID="ID_1599453981" MODIFIED="1478037016487" TEXT="both formal parameters of functions and parameters passed in a call need to be references"/>
+</node>
+<node CREATED="1478037054679" ID="ID_1146565557" MODIFIED="1478037109330" TEXT="references are immutable by default">
+<node CREATED="1478037069911" ID="ID_1512346719" MODIFIED="1478037074355" TEXT="cannot push to vector"/>
+</node>
+<node CREATED="1478037109975" ID="ID_1547772982" MODIFIED="1478037117581" TEXT="immutable references &amp;mut T"/>
+<node CREATED="1478037154202" ID="ID_338990393" MODIFIED="1478037167949" TEXT="cannot make mutable borrow to immutable value"/>
+<node CREATED="1478037204952" ID="ID_786725606" MODIFIED="1478037226340" TEXT="* necessary to access value under mutable reference"/>
+<node CREATED="1478037240980" ID="ID_898546742" MODIFIED="1478037242766" TEXT="Rules">
+<node CREATED="1478037246692" ID="ID_1655900529" MODIFIED="1478037266059" TEXT="any borrow must last for a scope no greater than that of the owner"/>
+<node CREATED="1478037276264" ID="ID_354857819" MODIFIED="1478037293740" TEXT="one or the other of two kinds not not at the same time">
+<node CREATED="1478037295932" ID="ID_1743085598" MODIFIED="1478037306653" TEXT="one or more immutable refernces"/>
+<node CREATED="1478037308775" ID="ID_597499084" MODIFIED="1478037313641" TEXT="exactly one mutable references"/>
+</node>
+<node CREATED="1478037459492" ID="ID_1201426366" MODIFIED="1478037481534" TEXT="references within the same scope are freed in the opposite order they were declared"/>
+</node>
+</node>
 </node>
 </node>
 </map>

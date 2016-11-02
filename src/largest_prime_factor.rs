@@ -1,5 +1,6 @@
 
 use common::divisible;
+use common::quot_rem;
 
 #[allow(dead_code)]
 pub fn is_prime(n: u64) -> bool {
@@ -33,7 +34,7 @@ pub fn largest_prime_factor(n: u64) -> u64 {
     let factors = factorize(n);
     match factors.last() {
         Some(&f) => f,
-        _ => 1,
+        None => 1,
     }
 }
 
@@ -62,6 +63,30 @@ impl Iterator for Primes {
             }
         }
         panic!("Integer overflow");
+    }
+}
+
+#[allow(dead_code)]
+pub fn prime_factors(n: u64, mut primes: Primes) -> Vec<u64> {
+    match n {
+        1 => vec![],
+        m => {
+            if let Some(p) = primes.next() {
+                let (q, r) = quot_rem(m, p);
+                if m < p * p {
+                    return vec![m];
+                } else if r == 0 {
+                    let mut factors = vec![p];
+                    let mut rest = prime_factors(q, primes);
+                    factors.append(&mut rest);
+                    return factors;
+                } else {
+                    return prime_factors(m, primes);
+                }
+            } else {
+                panic!("cannot happen");
+            }
+        }
     }
 }
 
@@ -99,5 +124,11 @@ mod tests {
     #[test]
     fn solution() {
         assert_eq!(largest_prime_factor(600851475143), 6857);
+    }
+
+    #[test]
+    fn call() {
+        let factors = prime_factors(13195, primes());
+        assert_eq!(factors, vec![5, 7, 13, 29]);
     }
 }

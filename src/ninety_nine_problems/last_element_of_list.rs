@@ -23,6 +23,6 @@ mod tests {
     #[test]
     fn test() {
         let v = vec![1, 2, 3, 4, 5];
-        println!("last of {:?} is {}", v, last(&v));
+        assert_eq!(last(&v), 5);
     }
 }
